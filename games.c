@@ -1,4 +1,4 @@
-//not working
+
 //www.spoj.com/problems/GAMES
 #include<stdio.h>
 #include<math.h>
