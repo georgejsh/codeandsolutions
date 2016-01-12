@@ -2,7 +2,7 @@
 //www.spoj.com/problems/GAMES
 #include<stdio.h>
 #include<math.h>
-int gcd(int a,int b)
+long long int gcd(long long int a,long long int b)
 {
  if(a==0)
   return b;
@@ -15,14 +15,28 @@ int gcd(int a,int b)
 }
 int main()
 {
-	int t,i,num,val;
-	double d;
+	int t,i,flag;
+	long long int num,val,num2;
+	char d[100];
 	for(scanf("%d",&t);t;t--) 
 	{
-		scanf("%lf",&d);
-		num=d*10000;
-		val=gcd(10000,num);
-		printf("%d\n",10000/num);
+		scanf("%s",d);
+		for(i=0,num=0,flag=1,num2=1;d[i]!='\0';i++)
+			if(d[i]!='.' && flag)
+			{
+ 			  num=num*10+(d[i]-48);
+			}
+			else if(d[i]!='.')
+			{
+			  num=num*10+(d[i]-48);
+			  num2*=10;
+			}
+			else 
+			  flag=0;	
+		//num calculate the number removing the decimal point
+		//num2 finds the number of digits after . multiplied by 10
+		val=gcd(num2,num);
+		printf("%lld\n",num2/val);
 	}
 	return 0;
 }
